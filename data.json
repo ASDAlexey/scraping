@@ -1,0 +1,18 @@
+[
+  {
+    "title": "Game of Thrones             ",
+    "rating": "9.4",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMjA5NzA5NjMwNl5BMl5BanBnXkFtZTgwNjg2OTk2NzM@._V1_UX182_CR0,0,182,268_AL_.jpg",
+    "totalRatings": "1,513,531",
+    "releaseDate": "TV Series (2011–2019)\n",
+    "genres": ["Action", "Adventure", "Drama"]
+  },
+  {
+    "title": "Battle of the Bastards             ",
+    "rating": "9.9",
+    "poster": "https://m.media-amazon.com/images/M/MV5BZDFiZTNiMmItMDk5ZC00OGZmLTk3NmItODM5ZWE2YWMzZjliXkEyXkFqcGdeQXVyOTMyOTQyNzA@._V1_UY268_CR110,0,182,268_AL_.jpg",
+    "totalRatings": "176,879",
+    "releaseDate": "Episode aired 19 June 2016\n",
+    "genres": ["Action", "Adventure", "Drama"]
+  }
+]
