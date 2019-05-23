@@ -1,6 +1,7 @@
 const request = require("request-promise");
 const cheerio = require("cheerio");
 const fs = require("fs");
+const { Parser } = require("json2csv");
 
 const URLS = [
   "https://www.imdb.com/title/tt0944947/?ref_=vi_close",
@@ -29,11 +30,21 @@ const URLS = [
     });
     const $ = cheerio.load(response);
 
-    const title = $("div.title_wrapper>h1").text();
-    const rating = $("span[itemprop='ratingValue']").text();
-    const poster = $(".poster img").attr("src");
-    const totalRatings = $(".imdbRating > a > .small").text();
-    const releaseDate = $("a[title='See more release dates']").text();
+    const title = $("div.title_wrapper>h1")
+      .text()
+      .trim();
+    const rating = $("span[itemprop='ratingValue']")
+      .text()
+      .trim();
+    const poster = $(".poster img")
+      .attr("src")
+      .trim();
+    const totalRatings = $(".imdbRating > a > .small")
+      .text()
+      .trim();
+    const releaseDate = $("a[title='See more release dates']")
+      .text()
+      .trim();
     const genres = $(".title_wrapper a[href^='/search/title?genre']")
       .map((i, el) => $(el).text())
       .get();
@@ -47,6 +58,12 @@ const URLS = [
       genres
     });
   }
-  fs.writeFileSync("./data.json", JSON.stringify(moviesData), "utf-8");
-  console.log(moviesData);
+  // fs.writeFileSync("./data.json", JSON.stringify(moviesData), "utf-8");
+  // const fields = ["title", "rating"];
+  // const parser = new Parser({ fields });
+  const parser = new Parser();
+  const csv = parser.parse(moviesData);
+  fs.writeFileSync("./data.csv", csv, "utf-8");
+
+  console.log(csv);
 })();
